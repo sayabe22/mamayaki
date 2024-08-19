@@ -1,24 +1,28 @@
-# README
+# ママやき
+## サイト概要
+### サイトテーマ
+日々子育てに奮闘するママさんの悩みや不安を和らげるコミュニティサイト
+### テーマを選んだ理由
+私の息子が自由奔放で親の話を聞いてくれないことがよくあり、子どもへの接し方について夫婦で悩んでいました。  
+子育て本などを参考にしてみても、思うようにいかないご家庭も少なくないと思います。  
+特に子どもと接する時間が長い母親にとっては心身への負担も大きく、その負担を少しでも軽減できるようなサービスがあれば良いなと考えました。  
+負担を軽減するために、他のママさんから共感やアドバイスなどを得られれば、世のママさんの心の負担を少しでも軽減できるのではないかと考えこのテーマにしました。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### ターゲットユーザ
+- 日々の育児に不安や悩みを抱えているママさん  
+- 育児経験の豊富なベテランママさん・保育士の方
 
-Things you may want to cover:
+### 主な利用シーン
+- 育児をする上での困りごとに対して他の方々はどのように対処しているのか気になった時  
+- 自分の中の不安やイライラを共感してほしい時
+​
+## 設計書
+- 後ほど作成予定
 
-* Ruby version
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
