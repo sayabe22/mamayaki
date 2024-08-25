@@ -11,6 +11,23 @@
   </head>
 
   <body>
+    <header>
+        <li>
+          <%= link_to "about", about_path %>
+        </li>
+        <li>投稿一覧</li>
+        <li>
+          <%= link_to "マイページ", root_path %>
+        </li>
+        <li>
+          <%= link_to "ログイン", new_user_session_path %>
+        </li>
+        <li>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <li>
+      
+    </header>    
+
     <%= yield %>
   </body>
 </html>

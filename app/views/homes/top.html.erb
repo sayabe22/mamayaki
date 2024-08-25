@@ -1,2 +1,22 @@
-<h1>ママやき</h1>
-<p>育児を頑張るママのつぶやき</p>
+
+<div>
+  <%= flash[:notice] %>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+      <h1>ママやき</h1>
+      <h3>育児を頑張るママのつぶやき</h3>
+      <p>日々の育児での不安や悩み、一人で抱えずつぶやいてみましょう<br>そのつぶやきが少し心を軽くしてくれる
+      </p>
+      <div class="btn-wrapper col-10 mx-auto">
+        <div class="row">
+          <%= link_to "Log in", user_session_path, class:'btn btn-info btn-sm btn-block mb-3 sign_in' %>
+        </div>
+        <div class="row">
+          <%= link_to "Sign up", new_user_registration_path, class:"btn btn-success btn-sm btn-block sign_up" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
