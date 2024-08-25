@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'users/mypage'
+  get 'users/edit'
+  get 'users/show'
   devise_for :users
   
   devise_scope :user do
