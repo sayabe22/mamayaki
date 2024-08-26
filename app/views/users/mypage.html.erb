@@ -1,2 +1,25 @@
-<h1>Users#mypage</h1>
-<p>Find me in app/views/users/mypage.html.erb</p>
+<h2>ユーザー情報</h2>
+<table class="table">
+  <tr>
+    <th>ユーザー名</th>
+    <th><%= @user.name %></th>
+  </tr>
+  <tr>
+    <th>プロフィール</th>
+    <th><%= @user.profile %></th>
+  </tr>
+  <tr>
+    <th>いいね一覧</th>
+  </tr>
+  <tr>
+   <th>フォロー一覧</th>
+  </tr>
+</table>
+<%= link_to edit_user_path(@user.id) do %>
+  <i class="fa-solid fa-user-gear btn btn-outline-secondary btn-block"></i>
+<% end %>
+
+
+
+<p>検索</p>
+
