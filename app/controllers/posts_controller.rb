@@ -23,7 +23,19 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
+  
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(posts_params)
+      flash[:notice] = "更新しました。"
+      redirect_to post_path(@post.id)
+    else
+      flash[:notice] = "更新に失敗しました。"
+      render :edit
+    end
+  end 
   
   def destroy
     post = Post.find(params[:id])
