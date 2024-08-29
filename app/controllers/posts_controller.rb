@@ -30,7 +30,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.update(posts_params)
       flash[:notice] = "更新しました。"
-      redirect_to post_path(@post.id)
+      redirect_to post_path(post.id)
     else
       flash[:notice] = "更新に失敗しました。"
       render :edit
