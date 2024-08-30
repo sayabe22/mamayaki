@@ -1,23 +1,6 @@
-<div>
-  <%= flash[:notice] %>
-</div>
-<h2>ユーザー情報</h2>
-<table class="table">
-  <tr>
-    <th>ユーザー名</th>
-    <th><%= @user.name %></th>
-  </tr>
-  <tr>
-    <th>プロフィール</th>
-    <th><%= @user.profile %></th>
-  </tr>
-  <tr>
-    <th>いいね一覧</th>
-  </tr>
-  <tr>
-   <th>フォロー一覧</th>
-  </tr>
-</table>
+<%= flash[:notice] %>
+<%= render 'user_info', user: @user %>
+
 <%= link_to "ユーザー情報編集", edit_user_path(@user.id) %>
 
 <%=link_to "退会", user_path(@user), method: :delete, "data-confirm" => "本当に退会しますか？" %>
