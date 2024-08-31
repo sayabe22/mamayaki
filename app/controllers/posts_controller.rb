@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def new
     @post = Post.new
+    @user = current_user
   end
 
   def create
@@ -21,6 +22,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @user = @post.user
   end
 
   def edit
@@ -50,4 +52,5 @@ private
   def posts_params
     params.require(:post).permit(:title, :body)
   end 
+  
 end
