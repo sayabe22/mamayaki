@@ -23,32 +23,52 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-      
             <% if user_signed_in? %>
               <li>
-                <%= link_to "トップ", root_path %>
+                <%= link_to root_path, class:"nav-link text-dark" do %>
+                  <i class="fa-solid fa-house"></i> トップ
+                <% end %>
               </li>
               <li>
-                <%= link_to "マイページ", mypage_path %>
+                <%= link_to root_path, class:"nav-link text-dark" do %>
+                  <i class="fa-solid fa-user"></i> マイページ
+                <% end %>
               </li>
               <li>
-                <%= link_to "投稿一覧", posts_path %>
+                <%= link_to posts_path, class:"nav-link text-dark" do %>
+                  <i class="fa-solid fa-list"></i>投稿一覧
+                <% end %>
               </li>
               <li>
-                <%= link_to "新規投稿", new_post_path %>
+                <%= link_to new_post_path, class:"nav-link text-dark" do %>
+                  <i class="fa-solid fa-comment"></i> 新規投稿
+                <% end %>
               </li>
               <li>
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                <%= link_to destroy_user_session_path, method: :delete, class:"nav-link text-dark" do %>
+                  <i class="fa-solid fa-comment"></i> ログアウト
+                <% end %>
               </li>
             <% else %>
               <li>
-                <%= link_to "トップ", root_path %>
+                <%= link_to root_path, class:"nav-link text-dark" do %>
+                  <i class="fa-solid fa-house"></i> トップ
+                <% end %>
               </li>
               <li>
-                <%= link_to "投稿一覧", posts_path %>
+                <%= link_to posts_path, class:"nav-link text-dark" do %>
+                  <i class="fa-solid fa-list"></i>投稿一覧
+                <% end %>
               </li>
               <li>
-                <%= link_to "ログイン", new_user_session_path %>
+                <%= link_to new_user_session_path, class:"nav-link text-dark" do %>
+                  <i class="fa-solid fa-right-to-bracket"></i> ログイン
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_user_registration_path, class:"nav-link text-dark" do %>
+                  <i class="fa-solid fa-user-plus"></i> 新規登録
+                <% end %>
               </li>
             <% end %>
             </ul>

@@ -1,13 +1,27 @@
-<h2>ユーザー情報</h2>
-  <%= image_tag user.get_profile_image(100,100) %>
-<table class="table">
-  <tr>
-    <th>ユーザー名</th>
-    <th><%= user.name %></th>
-  </tr>
-  <tr>
-    <th>プロフィール</th>
-    <th><%= user.profile %></th>
-  </tr>
+<% if user_signed_in? %>
+  <h2>ユーザー情報</h2>
+    <%= image_tag user.get_profile_image(100,100) %>
+  <table class="table">
+    <tr>
+      <th>ユーザー名</th>
+      <th><%= user.name %></th>
+    </tr>
+    <tr>
+      <th>プロフィール</th>
+      <th><%= user.profile %></th>
+    </tr>
+  
+  </table>
+<% else %>
+  <h2>ユーザー情報</h2>
 
-</table>
+  <table>
+    <tr>
+      <th>ユーザー名</th>
+      <th>ゲスト</th>
+    </tr>
+
+  </table>
+  
+  <p>ゲストユーザーは一覧の閲覧のみ可能です。</p>
+<% end %>
