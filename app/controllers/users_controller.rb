@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   end 
 
   def edit
+
     @user = User.find_by(id params[:id])
     unless @user.try(:id) == current_user.id
       redirect_to mypage_path
