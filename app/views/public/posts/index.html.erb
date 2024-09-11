@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'public/users/user_info', user: @user %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+    <h1>つぶやき一覧</h1>
+      <table class="table table-hober table-inverse">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>つぶやき</th>
+            <th>ユーザー名</th>
+            <th>コメント数</th>
+          </tr>
+        </thead>
+               
+        <tbody>
+          <% @posts.each do |post| %>
+            <% if user_signed_in? %>
+              <tr>
+                <td><%= link_to post.title, post_path(post.id) %></td>
+                <td><%= post.body %></td>
+                <td><%= link_to post.user.name, user_path(post.user.id) %></td>
+                <td><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></td>
+              </tr>
+            <% else %>
+              <tr>
+                <td><%= link_to post.title, new_user_registration_path %></td>
+                <td><%= post.body %></td>
+                <td><%= link_to post.user.name, new_user_registration_path %></td>
+                <td><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></td>
+              </tr>
+            <% end %>
+          <% end %>
+          
+        </tbody>
+                    
+      </table>
+      <%= paginate @posts %>
+    </div>
+  </div>
+</div>
