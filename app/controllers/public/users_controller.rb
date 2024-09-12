@@ -4,7 +4,7 @@ class Public::UsersController < ApplicationController
   
   def mypage
     @user = current_user
-    @posts = @user.posts.page(params[:page])
+    @posts = @user.posts.page(params[:page]).order("created_at DESC")
   end
 
   def show
