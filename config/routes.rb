@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get 'user/mypage' => 'users#mypage',as: :'mypage'
     resources :users
     resources :posts do
+      resource :favorite, only: [:create, :destroy]
       resources :post_comments, only: [:create, :destroy]
     end
     
