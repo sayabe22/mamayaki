@@ -18,7 +18,12 @@ Rails.application.routes.draw do
     
     root to: "homes#top"
     get 'user/mypage' => 'users#mypage',as: :'mypage'
-    resources :users
+    resources :users do
+      member do
+        get :favorites
+      end
+    end
+    
     resources :posts do
       resource :favorite, only: [:create, :destroy]
       resources :post_comments, only: [:create, :destroy]
