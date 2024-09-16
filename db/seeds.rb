@@ -35,7 +35,7 @@ Post.find_or_create_by!(title: "遊園地へ") do |post|
 end
 
 Post.find_or_create_by!(title: "先日見かけた光景")  do |post|
-  post.body = "小さい子供にリールをつけている方がたまにいますがみなさんどのように思いますか。"
+  post.body = "小さい子供にリードをつけている方がたまにいますがみなさんどのように思いますか。"
   post.user_id = 3
 end
 

@@ -19,7 +19,14 @@ class Public::UsersController < ApplicationController
       redirect_to mypage_path
     end
   end
-
+  
+  def favorites
+    @user = User.find(params[:id])
+    favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
+    @favorite_posts = Post.page(params[:page]).order("created_at DESC")
+    @post = Post.find_by(params[:id])
+  end 
+  
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)

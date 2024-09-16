@@ -4,7 +4,7 @@
       <%= render 'public/users/user_info', user: @user %>
     </div>
     <div class="col-md-8 offset-md-1">
-    <h1>つぶやき一覧</h1>
+    <h1>いいね一覧</h1>
       <table class="table table-hober table-inverse">
         <thead>
           <tr>
@@ -16,7 +16,7 @@
         </thead>
                
         <tbody>
-          <% @posts.each do |post| %>
+          <% @favorite_posts.each do |post| %>
             <% if user_signed_in? %>
               <tr>
                 <td><%= link_to post.title, post_path(post.id) %></td>
@@ -49,7 +49,7 @@
         </tbody>
                     
       </table>
-      <%= paginate @posts %>
+      <%= paginate @favorite_posts %>
     </div>
   </div>
 </div>
