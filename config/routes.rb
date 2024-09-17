@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     end
     
     root to: "homes#top"
+    
     get 'user/mypage' => 'users#mypage',as: :'mypage'
     resources :users do
       member do
