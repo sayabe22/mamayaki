@@ -10,7 +10,24 @@
       <th>プロフィール</th>
       <th><%= user.profile %></th>
     </tr>
-  
+    <tr>
+      <th><%= link_to "フォロー数", user_followings_path(@user.id) %></th>
+      <th>(<%= @user.followings.count %>)</th>
+    </tr>
+    <tr>
+      <th><%= link_to "フォロワー数", user_followers_path(@user.id) %></th>
+      <th>(<%= @user.followers.count %>)</th>
+    </tr>
+    <%if @user == current_user %>
+      <tr>
+        <th><%= link_to "いいね一覧", favorites_user_path(@user.id) %></th>
+        <th></th>
+      </tr>
+      <tr>
+        <th><%= link_to "ユーザー情報編集", edit_user_path(@user.id) %></th>
+        <th></th>
+      </tr>
+    <% end %>
   </table>
 <% else %>
   <h2>ユーザー情報</h2>

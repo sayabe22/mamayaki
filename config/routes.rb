@@ -17,11 +17,17 @@ Rails.application.routes.draw do
     end
     
     root to: "homes#top"
+    
     get 'user/mypage' => 'users#mypage',as: :'mypage'
     resources :users do
       member do
         get :favorites
       end
+      
+      resource :relationships, only: [:create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
+      
     end
     
     resources :posts do
