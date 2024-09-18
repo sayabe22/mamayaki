@@ -19,7 +19,7 @@ class Public::PostsController < ApplicationController
   end 
 
   def index
-    @posts = Post.page(params[:page]).order("created_at DESC").where(user_id: [current_user.id, *current_user.following_ids])
+    @posts = Post.page(params[:page]).order("created_at DESC")
     @user = current_user
   end
 
