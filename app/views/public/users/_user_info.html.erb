@@ -12,11 +12,11 @@
     </tr>
     <tr>
       <th><%= link_to "フォロー数", user_followings_path(@user.id) %></th>
-      <th></th>
+      <th>(<%= @user.followings.count %>)</th>
     </tr>
     <tr>
       <th><%= link_to "フォロワー数", user_followers_path(@user.id) %></th>
-      <th></th>
+      <th>(<%= @user.followers.count %>)</th>
     </tr>
     <%if @user == current_user %>
       <tr>
