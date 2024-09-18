@@ -21,9 +21,11 @@
     <%if @user == current_user %>
       <tr>
         <th><%= link_to "いいね一覧", favorites_user_path(@user.id) %></th>
+        <th></th>
       </tr>
       <tr>
         <th><%= link_to "ユーザー情報編集", edit_user_path(@user.id) %></th>
+        <th></th>
       </tr>
     <% end %>
   </table>
