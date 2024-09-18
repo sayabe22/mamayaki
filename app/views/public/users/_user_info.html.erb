@@ -18,7 +18,7 @@
       <th><%= link_to "フォロワー数", user_followers_path(@user.id) %></th>
       <th>(<%= @user.followers.count %>)</th>
     </tr>
-    <%if @user == current_user %>
+    <% if @user == current_user %>
       <tr>
         <th><%= link_to "いいね一覧", favorites_user_path(@user.id) %></th>
         <th></th>
