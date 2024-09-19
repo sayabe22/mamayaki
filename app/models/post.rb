@@ -3,6 +3,13 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :notifications, as: :notifiable, dependent: :destroy
+  
+  after_create do
+    user.followers.each do |follower|
+      notifications.create(user_id: follower.id)
+    end
+  end    
   
   def self.looks(search, word)
     if search == "perfect_match"
