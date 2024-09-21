@@ -6,8 +6,12 @@ class NotificationsController < ApplicationController
     notification.update(read: true)
     
     case notification.notifiable_type
-    when "Post", #"PostComment"
+    when "Post"
       redirect_to post_path(notification.notifiable)
+    when "PostComment"
+      redirect_to post_path(notification.notifiable.post)
+    when "Relationship"
+      redirect_to user_path(notification.notifiable.follower_id)
     else
       redirect_to user_path(notification.notifiable.user)
     end

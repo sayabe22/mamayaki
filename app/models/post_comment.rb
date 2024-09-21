@@ -5,7 +5,11 @@ class PostComment < ApplicationRecord
   has_one :notification, as: :notifiable, dependent: :destroy
   
   after_create do
-    create_notification(user_id: post.user_id)
+    post = self.post
+    Notification.create(
+      user_id: post.user_id,
+      notifiable_id: id,
+      notifiable_type: "PostComment")
   end  
   
   validates :comment, presence: true

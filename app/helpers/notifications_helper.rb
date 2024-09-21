@@ -5,10 +5,11 @@ module NotificationsHelper
       "フォローしている#{notification.notifiable.user.name}さんが#{notification.notifiable.title}を投稿しました"
     when "Favorite"
       "投稿した#{notification.notifiable.post.title}が#{notification.notifiable.user.name}さんにいいねされました"
-    else
+    when "PostComment"
       "投稿した#{notification.notifiable.post.title}が#{notification.notifiable.user.name}さんにコメントされました"
-#    else
- #     "#{notification.notifiable.user.name}さんにフォローされました"
+    else
+      user = User.find(notification.notifiable.follower_id)
+      "#{user.name}さんにフォローされました"
     end
   end
 end
