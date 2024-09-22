@@ -59,12 +59,21 @@
         </p>
       <% end %>
       <% @post.post_comments.each do |post_comment| %>
-        <p><%= image_tag post_comment.user.get_profile_image(100,100) %></p>
-        <%= post_comment.user.name %>
-        <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
-        <% if post_comment.user == current_user %>
-          <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %>
-        <% end %>
+        <div class= "row border-top">
+          <div class= "col-md-3">
+            <p><%= image_tag post_comment.user.get_profile_image(100,100) %></p>
+            <%= link_to post_comment.user.name, user_path(post_comment.user.id) %>
+            <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+          </div>
+          <div class= "col-md-7">
+            <%= post_comment.comment %>
+          </div>
+          <div class= "col-md-2">
+            <% if post_comment.user == current_user %>
+              <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %>
+            <% end %>
+          </div>
+        </div>
       <% end %>
       
       <%= form_with model: [@post, @post_comment] do |f| %>
