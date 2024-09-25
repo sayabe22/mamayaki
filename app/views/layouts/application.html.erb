@@ -39,11 +39,13 @@
                   <i class="fa-solid fa-list"></i>投稿一覧
                 <% end %>
               </li>
-              <li>
-                <%= link_to new_post_path, class:"nav-link text-dark" do %>
-                  <i class="fa-solid fa-comment"></i> 新規投稿
-                <% end %>
-              </li>
+              <% if @user.email != "guest@example.com" %>
+                <li>
+                  <%= link_to new_post_path, class:"nav-link text-dark" do %>
+                    <i class="fa-solid fa-comment"></i> 新規投稿
+                  <% end %>
+                </li>
+              <% end %>
               <li class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Notification
