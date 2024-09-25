@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :notifications, as: :notifiable, dependent: :destroy
+  has_one :notification, as: :notifiable, dependent: :destroy
   
   after_create do
     user.followers.each do |follower|
