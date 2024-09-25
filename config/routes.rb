@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'posts/index'
+  end
   devise_for :admin, skip: [:registrations, :password], controllers: {
     sessions: 'admin/sessions'
   }
@@ -10,6 +13,7 @@ Rails.application.routes.draw do
   
   namespace :admin do
     get 'dashboards', to: 'dashboards#index'
+    get 'posts/index'
     resources :users, only: [:show, :destroy]
   end
   
