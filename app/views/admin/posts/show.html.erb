@@ -16,7 +16,7 @@
       </table>
     <%= link_to "ユーザー削除", admin_user_path(@user), method: :delete, data: { confirm: 'ユーザーを削除してよろしいですか？' },class:"btn btn-sm btn-danger" %>
     <%= link_to "ユーザー一覧へ", admin_dashboards_path, class:"btn btn-sm btn-primary" %>
-    <%= link_to "つぶやき削除", admin_post_path, method: :delete, data: { confirm: 'ユーザーを削除してよろしいですか？' },class:"btn btn-sm btn-danger" %>
+    <%= link_to "つぶやき削除", admin_post_path, method: :delete, data: { confirm: 'このつぶやきを削除してよろしいですか？' },class:"btn btn-sm btn-danger" %>
     </div>
     <div class="col-md-8 offset-md-1"> 
       <h2>投稿詳細</h2>
@@ -49,8 +49,6 @@
       <%= @post.created_at.strftime('%Y/%m/%d') %>
     
       <p>コメント件数：<%= @post.post_comments.count %></p>
-      <% if @post.favorited_by?(current_user) %>
-      <% end %>
       <% @post.post_comments.each do |post_comment| %>
         <div class= "row border-top">
           <div class= "col-md-3">
@@ -62,7 +60,7 @@
             <%= post_comment.comment %>
           </div>
           <div class= "col-md-2">
-            <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %>
+            <%= link_to "削除", admin_post_comment_path(post_comment), method: :delete %>
           </div>
         </div>
       <% end %>
