@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   devise_for :admin, skip: [:registrations, :password], controllers: {
     sessions: 'admin/sessions'
   }
@@ -13,6 +12,7 @@ Rails.application.routes.draw do
     get 'dashboards', to: 'dashboards#index'
     resources :users, only: [:show, :destroy]
     resources :posts
+    resources :post_comments, only: [:destroy] 
   end
   
   scope module: :public do
