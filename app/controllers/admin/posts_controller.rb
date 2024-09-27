@@ -1,10 +1,21 @@
 class Admin::PostsController < ApplicationController
+  layout 'admin'
+  
   def index
     @user = current_user
-    if @user.email == 'guest@example.com'
-       @posts = Post.page(params[:page]).order("created_at DESC")
-    else
-      @posts = Post.page(params[:page]).order("created_at DESC").where(user_id: [current_user.id, *current_user.following_ids])
-    end
+    @posts = Post.page(params[:page]).order("created_at DESC")
+  end
+
+
+  def show
+    @post = Post.find(params[:id])
+    @user = @post.user
+    @post_comment = PostComment.new
+  end
+  
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to admin_posts_path
   end
 end

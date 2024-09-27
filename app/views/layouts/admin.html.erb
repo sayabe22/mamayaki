@@ -20,6 +20,8 @@
           <ul class="navbar-nav ml-auto">
   <% if admin_signed_in? %>
     <div class="text-right">
+      <%= link_to 'ユーザー一覧', admin_dashboards_path %>
+      <%= link_to 'つぶやき一覧', admin_posts_path %>
       <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
     </div>
   <% end %>
